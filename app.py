@@ -27,7 +27,7 @@ def upload():
                 temp_df['filename'] = f.filename
                 df.append(temp_df)
                 for _ , row in temp_df.iterrows():
-                    dataset_class_path = os.path.join('static','datasets',name,row['note'])
+                    dataset_class_path = os.path.join('static','datasets',name,'-'.join(row['note'].split()))
                     if not os.path.isdir(dataset_class_path):
                         os.mkdir(dataset_class_path)
                     with test_zip.open(row['location'][2:],'r') as temp_file:
